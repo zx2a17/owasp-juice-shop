@@ -4,11 +4,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "4.52.0"
-    }
-    serverscom = {
-      source = "serverscom/serverscom"
-      version = "0.4.2"
+      version = "5.59.0" #check latest https://registry.terraform.io/providers/hashicorp/aws/latest
     }
   }
 }
