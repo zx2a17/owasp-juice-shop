@@ -6,6 +6,10 @@ terraform {
       source  = "hashicorp/aws"
       version = "4.52.0" #check latest https://registry.terraform.io/providers/hashicorp/aws/latest
     }
+    serverscom = {
+      source = "serverscom/serverscom"
+      version = "0.4.2"
+    }
   }
 }
 
