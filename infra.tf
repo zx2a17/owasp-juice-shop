@@ -18,7 +18,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "web" {
-  ami                    = "ami-04f1b917806393faa" #this is now hard coded, need to figure out how to do the aboe way that is commented out atm
+  ami                    = "ami-012c2e8e24e2ae21d" #this is now hard coded, need to figure out how to do the aboe way that is commented out atm
   instance_type          = "t2.micro"
   tags = {
     Name = "owasp-js"
