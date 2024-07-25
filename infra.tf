@@ -4,7 +4,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "5.59.0" #check latest https://registry.terraform.io/providers/hashicorp/aws/latest
+      version = "3.0.0" #check latest https://registry.terraform.io/providers/hashicorp/aws/latest
     }
     serverscom = {
       source = "serverscom/serverscom"
@@ -15,8 +15,6 @@ terraform {
 
 provider "aws" {
   region = "ap-southeast-1"
-  access_key  = "AKIAUMRKCGPBJPOOSWUK"
-  secret_key  = "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"
 }
 
 resource "aws_instance" "web" {
