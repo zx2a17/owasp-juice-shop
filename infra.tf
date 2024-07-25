@@ -4,7 +4,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "4.52.0"
+      version = "4.52.0" #check latest https://registry.terraform.io/providers/hashicorp/aws/latest
     }
     serverscom = {
       source = "serverscom/serverscom"
@@ -14,13 +14,15 @@ terraform {
 }
 
 provider "aws" {
-  region = "ap-southeast-1"
+  region = "eu-central-1"
 }
 
 resource "aws_instance" "web" {
   ami                    = "ami-04f1b917806393faa" #this is now hard coded, need to figure out how to do the aboe way that is commented out atm
   instance_type          = "t2.micro"
-  name                   = "owasp-js"
+  tags = {
+    Name = "owasp-js"
+  }
   vpc_security_group_ids = [aws_security_group.web-sg.id]
   user_data = <<-EOF
                 #!/bin/bash
@@ -57,6 +59,7 @@ resource "aws_security_group" "web-sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+  egress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
